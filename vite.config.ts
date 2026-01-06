@@ -8,13 +8,11 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
-
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
     },
   },
-
   build: {
     outDir: "dist",
     emptyOutDir: true,
