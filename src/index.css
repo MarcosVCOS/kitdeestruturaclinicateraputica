@@ -1,50 +1,84 @@
-@custom-variant dark (&:is(.dark *));
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@theme inline {
+/* =========================
+   Variáveis de tema (CSS puro)
+   ========================= */
+
+:root {
   --font-sans: 'Inter', sans-serif;
   --font-serif: 'Lora', serif;
 
-  --color-background: hsl(210 20% 98%);
-  --color-foreground: hsl(215 25% 27%);
+  --background: hsl(210 20% 98%);
+  --foreground: hsl(215 25% 27%);
 
-  --color-card: hsl(0 0% 100%);
-  --color-card-foreground: hsl(215 25% 27%);
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(215 25% 27%);
 
-  --color-popover: hsl(0 0% 100%);
-  --color-popover-foreground: hsl(215 25% 27%);
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(215 25% 27%);
 
-  --color-primary: hsl(176 61% 19%); /* Deep Teal */
-  --color-primary-foreground: hsl(210 40% 98%);
+  --primary: hsl(176 61% 19%);
+  --primary-foreground: hsl(210 40% 98%);
 
-  --color-secondary: hsl(170 30% 92%); /* Soft Sage Light */
-  --color-secondary-foreground: hsl(176 61% 19%);
+  --secondary: hsl(170 30% 92%);
+  --secondary-foreground: hsl(176 61% 19%);
 
-  --color-muted: hsl(210 40% 96.1%);
-  --color-muted-foreground: hsl(215.4 16.3% 46.9%);
+  --muted: hsl(210 40% 96.1%);
+  --muted-foreground: hsl(215.4 16.3% 46.9%);
 
-  --color-accent: hsl(176 61% 90%);
-  --color-accent-foreground: hsl(176 61% 19%);
+  --accent: hsl(176 61% 90%);
+  --accent-foreground: hsl(176 61% 19%);
 
-  --color-destructive: hsl(0 84.2% 60.2%);
-  --color-destructive-foreground: hsl(210 40% 98%);
+  --destructive: hsl(0 84.2% 60.2%);
+  --destructive-foreground: hsl(210 40% 98%);
 
-  --color-border: hsl(214.3 31.8% 91.4%);
-  --color-input: hsl(214.3 31.8% 91.4%);
-  --color-ring: hsl(176 61% 19%);
+  --border: hsl(214.3 31.8% 91.4%);
+  --input: hsl(214.3 31.8% 91.4%);
+  --ring: hsl(176 61% 19%);
 
   --radius-sm: 0.3rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
 }
 
+/* =========================
+   Dark mode (Tailwind padrão)
+   ========================= */
+
+.dark {
+  --background: hsl(215 25% 10%);
+  --foreground: hsl(210 40% 98%);
+
+  --card: hsl(215 25% 15%);
+  --card-foreground: hsl(210 40% 98%);
+}
+
+/* =========================
+   Base styles
+   ========================= */
+
 @layer base {
   * {
-    @apply border-border;
+    border-color: var(--border);
   }
+
   body {
-    @apply font-sans antialiased bg-background text-foreground;
+    font-family: var(--font-sans);
+    background-color: var(--background);
+    color: var(--foreground);
+    -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-serif text-primary tracking-tight;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-serif);
+    color: var(--primary);
+    letter-spacing: -0.02em;
   }
 }
